@@ -4,6 +4,7 @@ document.getElementById('login-submit').addEventListener
             document.getElementById('user-name').value;
             //get user password
             document.getElementById('user-password').value;
+            //email and password validation
             if (document.getElementById('user-name').value == 'jeba@gmail.com' && document.getElementById('user-password').value == '123a') {
                   window.location.href = 'banking.html';
             }
