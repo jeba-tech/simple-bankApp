@@ -2,7 +2,6 @@
 
 function getInputValue(inputId) {
       //get the amount deposited and withdrawn
-
       const depositeWithdrawInput = document.getElementById(inputId);
       const depositeWithdrawInputValue = depositeWithdrawInput.value;
       const parseDepositeWithdrawInputValue = parseFloat(depositeWithdrawInputValue);
@@ -23,8 +22,9 @@ function updateAmount(updateTotal, inputAmount) {
 function updateBalance(updateBalance, isAdd) {
       // updated total balance amount
       const balanceTotal = document.getElementById('balance-total');
-      const balanceToatalvalue = balanceTotal.innerText;
-      const parseBalanceToatalvalue = parseFloat(balanceToatalvalue);
+      // const balanceToatalvalue = balanceTotal.innerText;
+      // const parseBalanceToatalvalue = parseFloat(balanceToatalvalue);
+      const parseBalanceToatalvalue = getCurrentBalance();
 
       if (isAdd == true) {
             balanceTotal.innerText = parseBalanceToatalvalue + updateBalance;
@@ -36,11 +36,19 @@ function updateBalance(updateBalance, isAdd) {
       }
 
 }
+function getCurrentBalance() {
+      const balanceTotal = document.getElementById('balance-total');
+      const balanceToatalvalue = balanceTotal.innerText;
+      const parseBalanceToatalvalue = parseFloat(balanceToatalvalue);
+      return parseBalanceToatalvalue;
+}
 document.getElementById('deposite-button').addEventListener('click', function () {
 
       const parseDepositeInputValue = getInputValue('deposite-input');
-      updateAmount('deposite-total', parseDepositeInputValue);
-      updateBalance(parseDepositeInputValue, true);
+      if (parseDepositeInputValue > 0) {
+            updateAmount('deposite-total', parseDepositeInputValue);
+            updateBalance(parseDepositeInputValue, true);
+      }
 
 
       //another way without uning function
@@ -70,8 +78,15 @@ document.getElementById('deposite-button').addEventListener('click', function ()
 document.getElementById('withdraw-button').addEventListener('click', function () {
 
       const parseWithdrawInputValue = getInputValue('withdraw-input');
-      updateAmount('withdraw-total', parseWithdrawInputValue);
-      updateBalance(parseWithdrawInputValue, false);
+      const currentBalance = getCurrentBalance();
+      if (parseWithdrawInputValue > 0 && parseWithdrawInputValue < currentBalance) {
+            updateAmount('withdraw-total', parseWithdrawInputValue);
+            updateBalance(parseWithdrawInputValue, false);
+      }
+      if (parseWithdrawInputValue > currentBalance) {
+            console.log('You can not withdraw more than what you have in your account');
+
+      }
 
       //another way without uning function
       /*    const withdrawInput = document.getElementById('withdraw-input');
