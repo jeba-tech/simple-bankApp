@@ -22,8 +22,6 @@ function updateAmount(updateTotal, inputAmount) {
 function updateBalance(updateBalance, isAdd) {
       // updated total balance amount
       const balanceTotal = document.getElementById('balance-total');
-      // const balanceToatalvalue = balanceTotal.innerText;
-      // const parseBalanceToatalvalue = parseFloat(balanceToatalvalue);
       const parseBalanceToatalvalue = getCurrentBalance();
 
       if (isAdd == true) {
@@ -98,7 +96,8 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
          //update withdraw 
          const newWithdraw = parseWithdrawInputValue + parseWithdrawTotalValue;
          withdrawTotal.innerText = newWithdraw;
-        update balance based on the withdraw 
+        //update balance based on the withdraw 
+        
          const balanceTotal = document.getElementById('balance-total');
          const balanceToatalvalue = balanceTotal.innerText;
          const parseBalanceToatalvalue = parseFloat(balanceToatalvalue);
