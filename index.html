@@ -10,7 +10,7 @@
       <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-teal-900">
       <main>
             <header>
                   <!-- <nav>
@@ -25,23 +25,32 @@
                         </ul>
                   </nav> -->
 
-                  <h1 class="text-4xl font-semibold text-center mt-14">Welcome to Simple <span class="text-sky-500">Bank
-                              Website</span></h1>
+                  <h1 class="text-4xl font-semibold text-center mt-14">Simple <span class="text-sky-500">Bank
+                        </span></h1>
 
             </header>
 
 
-            <section class="bg-cyan-200 w-2/5 p-8 mx-auto mt-7 rounded-md">
-                  <h2 class="text-2xl mb-5 p-4">Login </h2>
+            <section class="bg-gray-500 w-80 p-8 mx-auto mt-7 rounded-md">
+                  <h2 class="text-2xl mb-5 p-4 font-semibold text-cyan-900 ml-20">Login </h2>
                   <div>
-                        <input class="border border-neutral-400 block rounded p-2 w-3/5 mb-5" type="text" name=""
+                        <input class="border border-neutral-400 block rounded p-2 w-64 mb-5" type="text" name=""
                               id="user-name" placeholder="Your Name ">
-                        <input class="border border-neutral-400 block rounded p-2 w-3/5" type="password" name=""
+                        <input class="border border-neutral-400 block rounded p-2 w-64" type="password" name=""
                               id="user-password" placeholder="password ">
-                        <button id="login-submit" class="mt-5 bg-cyan-900 py-2 px-4 rounded-lg text-white"
+                        <button id="login-submit" class="mt-5 bg-cyan-900 py-2 px-4 rounded-lg text-white ml-20"
                               type="submit">Submit</button>
                   </div>
+                  <button class="mt-5 bg-cyan-800 py-2 px-4 rounded-lg text-white ml-10 mb-8" onclick="getInfo()">Get
+                        Email & Password</button>
 
+                  <p id="Info"></p>
+
+                  <script>
+                        function getInfo() {
+                              document.getElementById("Info").innerHTML = "Email: jeba@gmail.com  <br> Password: 123a";
+                        }
+                  </script>
             </section>
       </main>
       <script src="js/login.js"></script>
